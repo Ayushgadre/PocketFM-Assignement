@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pocket FM Media Player",
-  description: "Play your Audio/Video files with custom player",
+  title: "Media Player",
+  description: "Play your audio/video files with custom player",
 };
 
 export default function RootLayout({
