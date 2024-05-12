@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+  background-color: #09090B;
+  color: white;
+}
+
+.homescreen{
+  font-family: "Noto Sans", sans-serif;
+}
+
+.video-player, .audio-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    background: #000;
+    overflow: hidden;
+  }
+  
+  .video-player video, .audio-player audio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .media-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .media-controls button {
+    background: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  .audio-thumbnail {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .minimized {
+    display: none;
+  }
+  .floating-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 169px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .media-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .controls {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .controls button svg {
+    width: 20px;
+    height: 20px;
+  }
+  
