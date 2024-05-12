@@ -1,5 +1,6 @@
 import { useReducer, useEffect, RefObject } from 'react';
 
+// Define the state shape for media controls
 type State = {
   isPlaying: boolean;
   volume: number;
@@ -8,6 +9,7 @@ type State = {
   currentTime: number;
 };
 
+// Define action types for media controls
 type Action =
   | { type: 'PLAY_PAUSE' }
   | { type: 'SET_VOLUME'; volume: number }
@@ -16,6 +18,7 @@ type Action =
   | { type: 'SET_CURRENT_TIME'; currentTime: number }
   | { type: 'SET_DURATION'; duration: number };
 
+// Initial state for media controls
 const initialState: State = {
   isPlaying: true,
   volume: 1,
@@ -24,6 +27,7 @@ const initialState: State = {
   currentTime: 0,
 };
 
+// Reducer function for media controls
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case 'PLAY_PAUSE':
@@ -41,10 +45,12 @@ function reducer(state: State, action: Action): State {
   }
 }
 
+// Custom hook for managing media controls
 export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudioElement>) => {
-
+  // Use reducer to manage state
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // Effect to handle time and volume changes
   useEffect(() => {
     const currentMediaRef = mediaRef.current;
 
@@ -73,6 +79,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     };
   }, [mediaRef]);
 
+  // Effect for continuous time update
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (mediaRef.current && !mediaRef.current.paused) {
@@ -83,6 +90,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     return () => clearInterval(intervalId);
   }, [mediaRef]);
 
+  // Function to handle play/pause
   const handlePlayPause = () => {
     if (mediaRef.current) {
       if (state.isPlaying) {
@@ -94,6 +102,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     }
   };
 
+  // Function to handle volume change
   const handleVolumeChange = (newVolume: number) => {
     if (mediaRef.current) {
       newVolume = Math.min(1, Math.max(0, newVolume));
@@ -102,6 +111,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     }
   };
 
+  // Function to toggle mute
   const handleMute = () => {
     if (mediaRef.current) {
       mediaRef.current.muted = !mediaRef.current.muted;
@@ -109,6 +119,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     }
   };
 
+  // Function to handle playback rate change
   const handlePlaybackRateChange = (newRate: number) => {
     if (mediaRef.current) {
       mediaRef.current.playbackRate = newRate;
@@ -116,6 +127,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     }
   };
 
+  // Function to handle seeking
   const handleSeek = (newTime: number) => {
     if (mediaRef.current) {
       mediaRef.current.currentTime = newTime;
@@ -123,6 +135,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     }
   };
 
+  // Function to handle key down events
   const handleKeyDown = (event: KeyboardEvent) => {
     switch (event.code) {
       case 'Space':
@@ -154,6 +167,7 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     }
   };
 
+  // Effect for handling key down events
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -161,6 +175,8 @@ export const useMediaControls = (mediaRef: RefObject<HTMLVideoElement | HTMLAudi
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
+
+  // Return state and control functions
   return {
     ...state,
     handlePlayPause,
