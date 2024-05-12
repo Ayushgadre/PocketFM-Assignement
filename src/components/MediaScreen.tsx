@@ -12,9 +12,9 @@ export default function MediaScreen() {
   return (
     <div className='homescreen'>
       <div className='flex flex-col items-center m-8'>
-        <p className="md:text-2xl text-lg font-bold mb-4 text-pocket-red">Pocket-FM-Assignment</p>
-        <p className="md:text-2xl text-lg">Audio/Video Player</p>
-        <p className="md:text-lg text-sm">Upload a file or select from sample media</p>
+        <p className="md:text-2xl text-lg font-bold mb-4 text-pocket-red">Pocket FM</p>
+        <p className="md:text-2xl text-lg">Audio-Video Player</p>
+        <p className="md:text-lg text-sm">Upload a File or Choose from Sample Media</p>
       </div>
       <div className="flex flex-col lg:flex-row mt-8 md:m-4">
         <div className="w-full lg:w-2/3 mb-4 lg:mb-0 lg:pr-4">
