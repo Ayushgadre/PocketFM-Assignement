@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Media Player",
+  title: "Pocket-FM Player",
   description: "Play your audio/video files with custom player",
 };
 
