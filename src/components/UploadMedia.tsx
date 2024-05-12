@@ -47,3 +47,4 @@ export function UploadMedia({ setSelectedFile, setFileType, setThumbnail }: Uplo
     </div>
   );
 }
+ 
