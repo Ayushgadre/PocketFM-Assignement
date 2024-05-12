@@ -11,12 +11,12 @@ type SampleMediaProps = {
 };
 
 const sampleFiles = [
-  { url: '/samples/sample1.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample1.png' },
-  { url: '/samples/sample2.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample2.png' },
-  { url: '/samples/sample3.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample3.png' },
+  { url: '/samples/sample1.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample1.jpg' },
+  { url: '/samples/sample2.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample2.jpg' },
+  { url: '/samples/sample3.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample3.jpg' },
   { url: '/samples/sample4.mp3', type: 'audio/mpeg', thumbnail: '/thumbnails/audioThumbnail.png' },
   { url: '/samples/sample5.mp3', type: 'audio/mpeg', thumbnail: '/thumbnails/audioThumbnail.png' },
-  { url: '/samples/sample6.mp4', type: 'video/mp4', thumbnail: '/thumbnails/sample6.png' },
+  { url: '/samples/sample6.mp3', type: 'audio/mpeg', thumbnail: '/thumbnails/audioThumbnail.png' },
 ];
 
 export function SampleMedia({ setSelectedFile, setFileType, setThumbnail }: SampleMediaProps) {

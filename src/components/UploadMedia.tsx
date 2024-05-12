@@ -21,13 +21,13 @@ export function UploadMedia({ setSelectedFile, setFileType, setThumbnail }: Uplo
       // Set file type
       setFileType(event.target.files[0].type);
       // Set thumbnail (assuming a default thumbnail for audio files)
-      setThumbnail("/thumbnails/audioThumbnail.jpeg");
+      setThumbnail("/thumbnails/audioThumbnail.png");
 
       // Create a new media object
       const newMedia = {
         url: URL.createObjectURL(event.target.files[0]),
         type: event.target.files[0].type,
-        thumbnail: "/thumbnails/audioThumbnail.jpeg"
+        thumbnail: "/thumbnails/audioThumbnail.png"
       };
 
       // Add new media to the top of the queue

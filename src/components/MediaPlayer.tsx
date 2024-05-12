@@ -130,7 +130,7 @@ export function MediaPlayer({ fileUrl, fileType, thumbnail }: MediaPlayerProps) 
             <video autoPlay={isPlaying} controls={false} ref={mediaRef as React.RefObject<HTMLVideoElement>} src={mediaUrl} width="320" height="240" />
           ) : (
             <div className="audio-player">
-              <Image src={mediaThumbnail || "/thumbnails/audioThumbnail.jpeg"} alt="Thumbnail" className="audio-thumbnail" width={100} height={100} />
+              <Image src={mediaThumbnail || "/thumbnails/audioThumbnail.png"} alt="Thumbnail" className="audio-thumbnail" width={100} height={100} />
               <audio autoPlay={isPlaying} controls={false} ref={mediaRef as React.RefObject<HTMLAudioElement>} src={mediaUrl} />
             </div>
           )}
